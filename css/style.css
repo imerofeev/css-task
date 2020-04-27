@@ -1,0 +1,205 @@
+body {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #000000;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.title {
+  font-family: "Amatic SC", cursive;
+  font-size: 40px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.num-of-page {
+  display: block;
+  width: 50px;
+  height: 18px;
+  text-align: right;
+}
+
+.list {
+  position: relative;
+  margin-left: auto;
+  max-width: 540px;
+  margin-top: 31px;
+}
+
+.list li {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list li:not(:first-child) {
+  margin-top: 20px;
+}
+
+.short-list-contents {
+  counter-reset: count;
+}
+
+.short-list-contents .item::before {
+  position: absolute;
+  content: counter(count);
+  counter-increment: count;
+  left: -2.5em;
+}
+
+.short-list-contents .no-count::before {
+  display: none;
+}
+
+.header .container {
+  padding-bottom: 0;
+}
+
+.header .title {
+  font-family: "Arial", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+  font-style: italic;
+}
+
+.main-content .container {
+  padding-top: 20px;
+}
+
+.main-content .title {
+  font-size: 32px;
+  text-align: left;
+}
+
+.about-author__img {
+  width: auto;
+  height: 450px;
+}
+
+.about-author__text {
+  margin-top: 40px;
+  text-align: justify;
+}
+
+.real-contents {
+  max-width: 800px;
+  margin-left: auto;
+  margin-top: 21px;
+}
+
+.real-contents .text {
+  margin-top: 18px;
+  line-height: 1.4;
+}
+
+.real-contents .real-list-contents .item:not(:first-child) {
+  margin-top: 10px;
+}
+
+.real-contents .real-list-contents {
+  max-width: 600px;
+  list-style: none;
+}
+
+.page-footer .container {
+  padding-top: 0;
+}
+
+.page {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: right;
+}
+
+@supports (display: grid) {
+  .authors {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 88px;
+  }
+}
+
+@supports not (display: grid) {
+  .authors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .about-author {
+    max-width: 556px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .about-author__img {
+    height: 376px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  @supports (display: grid) {
+    .authors {
+      grid-gap: 44px;
+    }
+  }
+  @supports not (display: grid) {
+    .about-author {
+      max-width: 572px;
+    }
+  }
+  .about-author__img {
+    height: 306px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .about-author__img {
+    height: 248px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  @supports (display: grid) {
+    .authors {
+      grid-template-columns: initial;
+    }
+  }
+  @supports not (display: grid) {
+    .authors {
+      flex-direction: column;
+    }
+    .about-author {
+      width: 100%;
+    }
+  }
+  .about-author__img {
+    height: auto;
+    width: 200px;
+  }
+}
